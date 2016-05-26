@@ -40,9 +40,15 @@ sampleAlbums.push({
 $(document).ready(function() {
   console.log('app.js loaded!');
 
-  sampleAlbums.forEach( function(album){
+  $.get("/api/albums").success(function (albums){
+    albums.forEach( function(album) {
     renderAlbum(album);
   })
+  });
+
+  // sampleAlbums.forEach( function(album){
+  //   renderAlbum(album);
+  // })
 
 
 });
@@ -54,7 +60,7 @@ $(document).ready(function() {
 // this function takes a single album and renders it to the page
 function renderAlbum(album) {
 
-  console.log('rendering album:',album);
+  console.log('rendering album:', album);
 
   var albumHtml =
   "        <!-- one album -->" +
@@ -71,15 +77,15 @@ function renderAlbum(album) {
   "                    <ul class='list-group'>" +
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Album Name:</h4>" +
-  "                        <span class='album-name'>" + sampleAlbums.name + "</span>" +
+  "                        <span class='album-name'>" + album.name + "</span>" +
   "                      </li>" +
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Artist Name:</h4>" +
-  "                        <span class='artist-name'>" +  sampleAlbums.artistName+ "</span>" +
+  "                        <span class='artist-name'>" +  album.artistName+ "</span>" +
   "                      </li>" +
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Released date:</h4>" +
-  "                        <span class='album-releaseDate'>" + sampleAlbums.releaseDate + "</span>" +
+  "                        <span class='album-releaseDate'>" + album.releaseDate + "</span>" +
   "                      </li>" +
   "                    </ul>" +
   "                  </div>" +
