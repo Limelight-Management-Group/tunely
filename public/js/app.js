@@ -40,6 +40,11 @@ sampleAlbums.push({
 $(document).ready(function() {
   console.log('app.js loaded!');
 
+  sampleAlbums.forEach( function(album){
+    renderAlbum(album);
+  })
+
+
 });
 
 
@@ -48,7 +53,8 @@ $(document).ready(function() {
 
 // this function takes a single album and renders it to the page
 function renderAlbum(album) {
-  console.log('rendering album:', album);
+
+  console.log('rendering album:',album);
 
   var albumHtml =
   "        <!-- one album -->" +
@@ -65,15 +71,15 @@ function renderAlbum(album) {
   "                    <ul class='list-group'>" +
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Album Name:</h4>" +
-  "                        <span class='album-name'>" + "HARDCODED ALBUM NAME" + "</span>" +
+  "                        <span class='album-name'>" + sampleAlbums.name + "</span>" +
   "                      </li>" +
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Artist Name:</h4>" +
-  "                        <span class='artist-name'>" +  "HARDCODED ARTIST NAME"+ "</span>" +
+  "                        <span class='artist-name'>" +  sampleAlbums.artistName+ "</span>" +
   "                      </li>" +
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Released date:</h4>" +
-  "                        <span class='album-releaseDate'>" + "HARDCODED ALBUM RELEASE" + "</span>" +
+  "                        <span class='album-releaseDate'>" + sampleAlbums.releaseDate + "</span>" +
   "                      </li>" +
   "                    </ul>" +
   "                  </div>" +
@@ -90,5 +96,7 @@ function renderAlbum(album) {
   "          <!-- end one album -->";
 
   // render to the page with jQuery
-
+  $("#albums").append(albumHtml);
 }
+
+// $("#albums").append(sampleAlbums[0]);
