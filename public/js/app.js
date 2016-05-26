@@ -6,37 +6,6 @@
  */
 
 
-/* hard-coded data! */
-var sampleAlbums = [];
-sampleAlbums.push({
-             artistName: 'Ladyhawke',
-             name: 'Ladyhawke',
-             releaseDate: '2008, November 18',
-             genres: [ 'new wave', 'indie rock', 'synth pop' ]
-           });
-sampleAlbums.push({
-             artistName: 'The Knife',
-             name: 'Silent Shout',
-             releaseDate: '2006, February 17',
-             genres: [ 'synth pop', 'electronica', 'experimental' ]
-           });
-sampleAlbums.push({
-             artistName: 'Juno Reactor',
-             name: 'Shango',
-             releaseDate: '2000, October 9',
-             genres: [ 'electronic', 'goa trance', 'tribal house' ]
-           });
-sampleAlbums.push({
-             artistName: 'Philip Wesley',
-             name: 'Dark Night of the Soul',
-             releaseDate: '2008, September 12',
-             genres: [ 'piano' ]
-           });
-/* end of hard-coded data */
-
-
-
-
 $(document).ready(function() {
   console.log('app.js loaded!');
 
@@ -61,7 +30,7 @@ $(document).ready(function() {
 function renderAlbum(album) {
 
   console.log('rendering album:', album);
-
+var albumPush = $('#albums');
   var albumHtml =
   "        <!-- one album -->" +
   "        <div class='row album' data-album-id='" + "HARDCODED ALBUM ID" + "'>" +
