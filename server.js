@@ -1,6 +1,6 @@
 // SERVER-SIDE JAVASCRIPT
 var db = require("./models");
-var parser = require('body-parser');
+var bodyParser = require('body-parser');
 
 
 
@@ -11,6 +11,7 @@ var app = express();
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 /**********
@@ -49,7 +50,7 @@ res.json(albums);
 
 app.post('/api/albums', function album_post(req, res){
   console.log("hello from server");  // this is getting called from app.js
-db.Album.create({}, function(err, albums) {
+db.Album.create(req.body, function(err, albums) {
 res.json(albums);
 })
 });

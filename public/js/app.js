@@ -22,7 +22,7 @@ $(document).ready(function() {
     event.preventDefault();
      var serialized = $(this).serialize()
     $.post("/api/albums", serialized, function(err, data){
-      if(err){ console.log("something went wrong:err)}
+      if(err){ console.log("something went wrong:", err)}
       console.log(data);
     })
     // $(this).trigger("reset");
@@ -32,14 +32,14 @@ $(document).ready(function() {
 
 
 
-     var formData = $(this).serialize()
-    $.post("/api/albums", formData).success(function(newAlbum){
-          console.log(newAlbum);
-          // renderAlbum(newAlbum);
-        });
-    })
+    //  var formData = $(this).serialize()
+    // $.post("/api/albums", formData).success(function(newAlbum){
+    //       console.log(newAlbum);
+    //       // renderAlbum(newAlbum);
+    //     });
+    // })
 
-  });
+  // });
 
 
 
