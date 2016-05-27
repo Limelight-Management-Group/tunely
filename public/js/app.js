@@ -18,10 +18,28 @@ $(document).ready(function() {
   // sampleAlbums.forEach( function(album){
   //   renderAlbum(album);
   // })
+  $(".form-horizontal").submit(function(event) {
+    event.preventDefault();
+     var serialized = $(this).serialize()
+    $.post("/api/albums", serialized, function(err, data){
+      if(err){ console.log("something went wrong:err)}
+      console.log(data);
+    })
+    // $(this).trigger("reset");
+  })
+
+  });
 
 
-});
 
+     var formData = $(this).serialize()
+    $.post("/api/albums", formData).success(function(newAlbum){
+          console.log(newAlbum);
+          // renderAlbum(newAlbum);
+        });
+    })
+
+  });
 
 
 

@@ -1,5 +1,8 @@
 // SERVER-SIDE JAVASCRIPT
 var db = require("./models");
+var parser = require('body-parser');
+
+
 
 //require express in our app
 var express = require('express');
@@ -44,6 +47,17 @@ res.json(albums);
 })
 })
 
+app.post('/api/albums', function album_post(req, res){
+  console.log("hello from server");  // this is getting called from app.js
+db.Album.create({}, function(err, albums) {
+res.json(albums);
+})
+});
+
+  // parse the body of the req and send it back to createAlbum
+  // db.Album.create()
+// res.json(req)
+// });
 
 /**********
  * SERVER *
